@@ -1,0 +1,7 @@
+
+.env/
+.idea/
+build/
+db.sqlite3
+dist/
+foolish_auth.egg-info/
