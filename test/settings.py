@@ -24,6 +24,7 @@ SECRET_KEY = '6zm(r19mpkj8l!x=#eaxr6kx1#$&=c^n^5r%zpld&e^fk+i(0!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+AUTH_USER_MODEL = 'FoolishAuth.User'
 
 ALLOWED_HOSTS = ['*', ]
 

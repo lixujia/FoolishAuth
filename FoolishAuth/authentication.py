@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from rest_framework.authentication import BaseAuthentication
 from rest_framework.exceptions import AuthenticationFailed
-from .models import User
+from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth import get_user_model
+from .settings import FOOLISH_AUTH_USER_SAVED
 
 
 class FoolishAuthentication(BaseAuthentication):
@@ -16,6 +18,14 @@ class FoolishAuthentication(BaseAuthentication):
         if username is None:
             raise AuthenticationFailed
 
-        user = User(username=username)
+        UserModel = get_user_model()
+
+        if FOOLISH_AUTH_USER_SAVED:
+            try:
+                user = UserModel.objects.get(username=username)
+            except ObjectDoesNotExist:
+                return None
+        else:
+            user = UserModel(username=username)
 
         return user, username
