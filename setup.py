@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="foolish-auth",
-    version="0.2.0",
+    version="0.3.0",
     author="Xujia Li",
     author_email="lixujia.cn@gmail.com",
     description="a authentication app for projects behind API gateway witch has authentication on API",
@@ -18,5 +18,5 @@ setuptools.setup(
     ],
     keywords='Django Authenticate Foolish',
     packages=setuptools.find_packages(exclude=['test', 'manage.py', 'db.sqlite3']),
-    install_requires=['django', 'djangorestframework'],
+    install_requires=['Django>=1.9.0', 'djangorestframework>=3.4.0'],
 )

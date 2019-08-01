@@ -22,10 +22,10 @@ class FoolishAuthentication(BaseAuthentication):
 
         if FOOLISH_AUTH_USER_SAVED:
             try:
-                user = UserModel.objects.get(username=username)
+                user = UserModel.objects.get(**{UserModel.USERNAME_FIELD: username})
             except ObjectDoesNotExist:
                 return None
         else:
-            user = UserModel(username=username)
+            user = UserModel(**{UserModel.USERNAME_FIELD: username})
 
         return user, username
