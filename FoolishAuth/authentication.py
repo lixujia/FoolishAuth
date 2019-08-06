@@ -14,9 +14,8 @@ class FoolishAuthentication(BaseAuthentication):
 
     def authenticate(self, request):
         username = request.META.get('HTTP_FOOLISH_AUTH')
-        print(username)
         if username is None:
-            raise AuthenticationFailed
+            return None
 
         UserModel = get_user_model()
 

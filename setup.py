@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="foolish-auth",
-    version="0.3.0",
+    version="0.4.0",
     author="Xujia Li",
     author_email="lixujia.cn@gmail.com",
     description="a authentication app for projects behind API gateway witch has authentication on API",
